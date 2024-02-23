@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'ProductsView'
+        name: 'SingleProdView'
     }
 </script>
 

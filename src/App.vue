@@ -1,6 +1,15 @@
 <template>
+  <NavBarComp></NavBarComp>
   <router-view/>
 </template>
+
+
+<script>
+import NavBarComp from './components/NavBarComp.vue'
+// import FooterComp from './components/FooterComp.vue'
+// import SpinnerComp from './components/SpinnerComp.vue'
+
+</script>
 
 <style>
 #app {

@@ -5,7 +5,7 @@ import { createToken } from "../middleware/authentication.js";
 class Users{
     fetchUsers(req, res) {
         const qry =`
-        SELECT userID firstName lastName emailAdd Gender userAge userRole userProfile
+        SELECT userID, firstName, lastName, emailAdd, Gender, userAge, userRole, userProfile
         FROM Users;
         `
         db.query(qry,(err, results)=>{
@@ -18,7 +18,7 @@ class Users{
     }
     fetchUser(req, res) {
         const qry =`
-        SELECT userID firstName lastName emailAdd Gender userAge userRole userProfile
+        SELECT userID, firstName, lastName, emailAdd, Gender, userAge, userRole, userProfile
         FROM Users
         WHERE userID = ${req.params.id};
         `
@@ -71,7 +71,7 @@ class Users{
             if(err) throw err
             res.json({
                 status: res.statusCode,
-                msg: "You have successfully updated your Accunt."
+                msg: "You have successfully updated your Account."
             })
         })
     }
@@ -88,4 +88,44 @@ class Users{
             })
         })
     }
+    login(req, res){
+        const {emailAdd, userPass} = req.body
+        const qry = `
+        SELECT userID, firstName, lastName, emailAdd, Gender, userAge, userRole, userProfile
+        FROM Users 
+        WHERE emailAdd = ${emailAdd};
+        `
+        db.query(qry, async(err, result)=>{
+            if(err) throw err
+            if(!result?.length){
+                res.json({
+                    status: res.statusCode,
+                    msg:"Incorrect email adress."
+                })
+            }else{
+                const validPass = await compare
+                (userPass, result[0].userPass)
+                if(validPass){
+                    const token = createToken({
+                        emailAdd,
+                        userPass
+                    })
+                    res.json({
+                        status: res.statusCode,
+                        msg:"Your bluetooth device has connected successfully.",
+                        token,
+                        result: result[0]
+                    })
+                }else{
+                    res.json({
+                        status: res.statusCode,
+                        msg:"Your password is incorrect."
+                    })
+                }
+            }
+        })
+    }
+}
+export{
+    Users
 }

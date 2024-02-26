@@ -1,4 +1,4 @@
-import { connection as db } from "mysql";
+import { connection as db } from "../config/config.js";
 class Products{
     fetchProducts(req, res){
         const qry =`

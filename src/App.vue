@@ -1,5 +1,6 @@
 <template>
   <NavBar></NavBar>
+  <main class="container-fluid"></main>
   <router-view/>
   <FooterComp></FooterComp>
 </template>
@@ -18,23 +19,21 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Maven Pro';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: black;
 }
 
-nav {
-  padding: 30px;
+.container {
+    min-height: 100vh; 
+    max-height: auto;
+    padding-bottom: 60px; 
+    box-sizing: border-box; 
+}
+nav a:hover{
+  text-decoration: underline #EE6F12;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

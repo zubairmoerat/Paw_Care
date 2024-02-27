@@ -18,7 +18,7 @@
       Catering to both dog and cat enthusiasts, our carefully chosen assortment meets the unique needs of each furry friend. Shop with confidence, knowing you're providing the best for your pets while making a positive impact on the community and the environment.
       <br>
 
-      Make PawCare your trusted partner in pet care – because your pets deserve nothing but excellence. Thank you for choosing PawCare and being a part of our mission for a happier, healthier world for pets and their human companions.
+      Make PawCare your trusted partner in pet care because your pets deserve nothing but excellence. Thank you for choosing PawCare and being a part of our mission for a happier, healthier world for pets and their human companions.
     </p>
 
   </div>

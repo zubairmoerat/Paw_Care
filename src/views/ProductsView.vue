@@ -37,21 +37,21 @@
 </template>
 
 <script>
-// import CardComp from '@components/CardComp.vue';
-// export default {
-//     name: 'ProductsView',
-//     components: {
-//         CardComp
-//     },
-//     computed: {
-//         products(){
-//             return this.$store.state.products
-//         }
-//     },
-//     mounted(){
-//         this.$store.dispatch('fetchProducts')
-//     }
-// }
+import Card from '../components/CardComp.vue';
+export default {
+    name: 'ProductsView',
+    components: {
+        Card
+    },
+    computed: {
+        products(){
+            return this.$store.state.products
+        }
+    },
+    mounted(){
+        this.$store.dispatch('fetchProducts')
+    }
+}
 </script>
 
 <style scoped>

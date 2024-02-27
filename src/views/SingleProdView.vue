@@ -27,20 +27,20 @@
 </template>
 
 <script>
-//   import CardComp from '@/components/CardComp.vue';
-//   export default{
-//     components: {
-//         CardComp,
-//     },
-//     computed: {
-//         product(){
-//             return this.$store.state.product
-//         }
-//     },
-//     mounted() {
-//         this.$store.dispatch('fetchProduct', this.$route.params)
-//     }
-//   }
+  import Card from '../components/CardComp.vue';
+  export default{
+    components: {
+        Card,
+    },
+    computed: {
+        product(){
+            return this.$store.state.product
+        }
+    },
+    mounted() {
+        this.$store.dispatch('fetchProduct', this.$route.params)
+    }
+  }
 </script>
 
 <style scoped>

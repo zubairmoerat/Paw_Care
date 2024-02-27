@@ -1,15 +1,20 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/products">Products</router-link>|
-    <router-link to="/product"></router-link>|
-    <router-link to="/admin">Admin</router-link>|
-    <router-link to="/contact">Contact</router-link>|
-    <router-link to="/register">Register</router-link>
-  </nav>
+  <NavBar></NavBar>
   <router-view/>
+  <FooterComp></FooterComp>
 </template>
+
+<script>
+import NavBar from './components/NavBar.vue';
+import FooterComp from './components/FooterComp.vue';
+
+export default {
+  components: {
+    NavBar,
+    FooterComp
+  }
+}
+</script>
 
 <style>
 #app {

@@ -91,7 +91,7 @@ class Users{
     login(req, res){
         const {emailAdd, userPass} = req.body
         const qry = `
-        SELECT userID, firstName, lastName, emailAdd, Gender, userAge, userRole, userProfile
+        SELECT userID, firstName, lastName, emailAdd, Gender, userAge, userRole, userProfile, userPass
         FROM Users 
         WHERE emailAdd = '${emailAdd}';
         `
@@ -112,7 +112,7 @@ class Users{
                     })
                     res.json({
                         status: res.statusCode,
-                        msg:"Your bluetooth device has connected successfully.",
+                        msg:"You have logged in successfully.",
                         token,
                         result: result[0]
                     })

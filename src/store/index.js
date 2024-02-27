@@ -32,7 +32,7 @@ export default createStore({
   },
   actions: {
    //registering a user
-   async register(context, payload) { //post is when adding a user
+   async register(context, payload) {
     try {
       let {msg} = (await axios.post(`${pawcareURL}/users/register`, payload)).data
         if(msg) {

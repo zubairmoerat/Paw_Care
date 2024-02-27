@@ -28,20 +28,19 @@ const routes = [
   },
   {
     path: '/contact',
-    name: 'about',
+    name: 'contact',
     component: () => import('../views/ContactView.vue')
   },
   {
     path: '/register',
     name: 'register',
     component: () => import('../views/RegisterView.vue')
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('@/views/LoginView.vue')
   }
-
+  // {
+  //   path: '/login',
+  //   name: 'login',
+  //   component: () => import('@/views/LoginVew.vue')
+  // }
 ]
 
 const router = createRouter({

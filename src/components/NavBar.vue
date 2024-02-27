@@ -1,11 +1,11 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <nav class="navbar navbar-expand-lg navbar-light" id="navbarr">
        <div class="container-fluid">
        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
        </button>
 
-       <div class="collapse navbar-collapse justify-content-end d-flex w-100">
+       <div class="collapse navbar-collapse justify-content-center inline-block d-flex w-100">
            <ul class="navbar-nav">
            <li class="nav-item">
                    <router-link to ="/" class="nav-link">Home</router-link> 
@@ -18,16 +18,18 @@
                <router-link to ="/products" class="nav-link">Shop</router-link>
            </li>    
            <!--the pic of the logo for the website-->
-           <router-link to="/">
-            
-           <img src="https://i.ibb.co/cQpLV6G/logoo.png" alt="logo">
-
+           <li class="nav-item ml-auto">
+            <router-link to="/">
+           <img src="https://i.ibb.co/hYrJKmp/Background-Eraser-20240220-094141227.png
+            " alt="logo">
            </router-link>
+        </li>
+           
 
                    
-           <li class="nav-item">
+           <!-- <li class="nav-item">
                <router-link to ="/product/:id" class="nav-link">Single prod</router-link>
-           </li>    
+           </li>     -->
                    
            <li class="nav-item">
                 <router-link to ="/admin" class="nav-link">Admin</router-link>
@@ -53,10 +55,15 @@
 
 <style scoped>
 img[alt="logo"] {
-   width: 90px;
+   width: 170px;
 }
 
-.navbar-nav li {
+.nav-item {
+    font-size: 20px;
+}
+.navbar-nav li  {
        margin-inline: .2rem;
    }
+
+   
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="container"> <br><br><br>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6" id="alignText-1">
         <h4 class="d-flex justify-content-left" id="home-1">Shop now and get 20% discount <br>on your first order.</h4>
         <p class="lead d-flex justify-content-left" id="home-2"> Only the best for our furry friends!</p>
         <div class="theBTN">
@@ -44,10 +44,11 @@ export default {
 }
 
 img[alt="landingPage"] {
-  width: 150%;
-  height: 100%;
+  width: 100%;
   justify-content: end;
+  margin-right: 20%;
 }
+
 #home-1 {
   color: #EE6F12;
 }
@@ -62,5 +63,6 @@ img[alt="landingPage"] {
     text-decoration: none;
     color: white;
   }
+
 
 </style>

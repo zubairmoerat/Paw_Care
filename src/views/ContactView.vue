@@ -19,7 +19,7 @@
                 </div>
                 <br> <br>
 
-                <button type="submit" class="d-flex justify-content-left" id="button2">Submit</button>
+                <button type="submit" class="d-flex justify-content-left" id="button-2">Submit</button>
             </div>
             <div class="col-md-6">
                 <h4 class="heading1">Get In Touch</h4>
@@ -94,7 +94,7 @@
     font-size: medium;
 }
 
-#button2 {
+#button-2 {
     color: white;
     background-color: #EE6F12;
     border: #EE6F12;

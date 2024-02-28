@@ -2,7 +2,7 @@
     <div class="container-fluid d-flex justify-content-center fixed-bottom" id="footer" >
         <div class="row">
             <p class="lead" id="footer">
-                PawCare&copy; 2024
+                PawCare&copy;2024
                 <span>{{ currYear }}</span> <br>
             </p>
         </div>

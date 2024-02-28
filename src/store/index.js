@@ -56,7 +56,7 @@ export default createStore({
   },
   async login(context, payload) {
     try{
-     const {msg, token, result} = (await axios.post(`${pawcareURL}users/login`, payload)).data 
+     const {msg, token, result} = (await axios.post(`${pawcareURL}/users/login`, payload)).data 
      if(result){
       context.commit('setUser', {msg, result})
       cookies.set('LegitUser', {
@@ -114,7 +114,7 @@ export default createStore({
   //fetching all the users
   async fetchUsers(context) {
     try{
-      let {results} = (await axios.get(`${pawcareURL}users`)).data
+      let {results} = (await axios.get(`${pawcareURL}/users`)).data
       if(results) {
         context.commit('setUsers', results)
       }

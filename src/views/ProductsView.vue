@@ -22,14 +22,13 @@
                 </template>
                 <template #cardBody>
                     <p class="card-text text-dark bg-gradient bg-dark subtle p-2">
-                        
-                        Image: {{ product.prodUrl }}
+                        <img :src="product.prodUrl" alt="prodPic">
                     </p>
                     <p class="card-text text-dark bg-gradient bg-dark subtle p-2">
-                        Category: {{ product.prodCategory }}
+                        {{ product.category }}
                     </p>
                     <p class="card-text text-dark bg-gradient bg-dark subtle p-2">
-                        Amount: R{{ product.prodAmount }}
+                        R{{ product.amount }}
                     </p>
                     <router-link :to="{name: 'product', params: {id: product.prodID}}">View more</router-link>
                 </template>
@@ -56,9 +55,6 @@ export default {
         products(){
             return this.$store.state.products
         },
-        // sort() {
-
-        // }
     },
     mounted(){
         this.$store.dispatch('fetchProducts')

@@ -12,20 +12,19 @@
                 </template>
                 <template #cardBody>
                     <p class="card-text text-dark bg-gradient bg-dark subtle p-2">
-                        
-                        Image: {{ product.prodUrl }}
+                        <img :src="product.prodUrl" alt="prodPic">
                     </p>
                     <p class="card-text text-dark bg-gradient bg-dark subtle p-2">
-                        Category: {{ product.prodCategory }}
+                        {{ product.category }}
                     </p>
                     <p class="card-text text-dark bg-gradient bg-dark subtle p-2">
-                        Description: {{ product.prodDesc }}
+                        {{ product.prodDesc }}
                     </p>
                     <p class="card-text text-dark bg-gradient bg-dark subtle p-2">
-                        Quantity: {{ product.prodQuantity }}
+                        {{ product.quantity }}
                     </p>
                     <p class="card-text text-dark bg-gradient bg-dark subtle p-2">
-                        Amount: {{ product.prodAmount }}
+                        R{{ product.amount }}
                     </p>
                 </template>
             </Card>

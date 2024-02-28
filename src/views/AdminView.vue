@@ -27,12 +27,12 @@
               <td>{{ user.userID }}</td>
               <td>{{ user.firstName }}</td>
               <td>{{ user.lastName }}</td>
-              <td>{{ user.Age }}</td>
+              <td>{{ user.userAge }}</td>
               <td>{{ user.Gender }}</td>
               <td>{{ user.emailAdd }}</td>
               <td>{{ user.userRole }}</td>
               <td class="d-flex justify-content-between">
-                <button class="btn btn-sm btn-success">Edit</button>
+                <button class="btn btn-sm btn-primary">Edit</button>
                 <button class="btn btn-sm btn-danger">Delete</button>
               </td>
             </tr>
@@ -66,10 +66,10 @@
               <td>{{ product.prodName }}</td>
               <td>{{ product.prodUrl }}</td>
               <td>{{ product.prodDesc }}</td>
-              <td>{{ product.prodQuantity }}</td>
-              <td>{{ product.prodAmount }}</td>
-              <td class="d-flex justify-content-between">
-                <button class="btn btn-sm btn-warning">Edit</button>
+              <td>{{ product.quantity }}</td>
+              <td>R{{ product.amount }},00</td>
+              <td class="d-flex justify-content-between gap-2">
+                <button class="btn btn-sm btn-primary">Edit</button>
                 <button class="btn btn-sm btn-danger">Delete</button>
               </td>
             </tr>

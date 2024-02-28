@@ -2,22 +2,28 @@
   <NavBar></NavBar>
   <main class="container-fluid"></main>
   <router-view/>
+  <div style="display: none;">
+    <SpinnerComp></SpinnerComp>
+  </div>
   <FooterComp></FooterComp>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue';
 import FooterComp from './components/FooterComp.vue';
-
+import SpinnerComp from './components/SpinnerComp.vue'
 export default {
   components: {
     NavBar,
+    SpinnerComp,
     FooterComp
   }
 }
 </script>
 
 <style>
+
+
 #app {
   font-family: 'Maven Pro';
   -webkit-font-smoothing: antialiased;

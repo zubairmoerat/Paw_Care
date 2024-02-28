@@ -12,6 +12,13 @@
                 </template>
                 <template #cardBody>
                     <p class="card-text text-dark bg-gradient bg-dark subtle p-2">
+                        
+                        Image: {{ product.prodUrl }}
+                    </p>
+                    <p class="card-text text-dark bg-gradient bg-dark subtle p-2">
+                        Category: {{ product.prodCategory }}
+                    </p>
+                    <p class="card-text text-dark bg-gradient bg-dark subtle p-2">
                         Description: {{ product.prodDesc }}
                     </p>
                     <p class="card-text text-dark bg-gradient bg-dark subtle p-2">

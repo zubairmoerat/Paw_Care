@@ -5,7 +5,7 @@ import {useCookies} from 'vue3-cookies'
 const {cookies} = useCookies()
 import router from '@/router'
 import AuthenticateUser from '@/service/AuthenticateUser'
-const pawcareURL = 'https://paw-care.onrender.com/'
+const pawcareURL = 'https://paw-care.onrender.com'
 
 export default createStore({
   state: {
@@ -91,7 +91,7 @@ export default createStore({
   //fetching a user
   async fetchUser(context, payload) {
     try{
-      let{result} = (await axios.get(`${pawcareURL}/users/:id${payload.id}`)).data
+      let{result} = (await axios.get(`${pawcareURL}/users/${payload.id}`)).data
       if(result) {
         context.commit('setUser', result)
       }else {
@@ -130,7 +130,7 @@ export default createStore({
    // updating/editing the user
    async updateUser(context, payload) {
     try{
-      let{msg} = await axios.patch(`${pawcareURL} users/updateUser/:id${payload.id}`)
+      let{msg} = await axios.patch(`${pawcareURL}/users/updateUser/${payload.id}`)
       if(msg) {
         context.dispatch('fetchUsers')
         sweet({
@@ -152,7 +152,7 @@ export default createStore({
   // deleting a user
   async deleteUser(context, payload) {
     try{
-      let{msg} = await axios.delete(`${pawcareURL}/users/deleteUser/:id${payload.id}`)
+      let{msg} = await axios.delete(`${pawcareURL}/users/deleteUser/${payload.id}`)
       if(msg) {
         context.dispatch('fetchUsers')
         sweet({
@@ -174,7 +174,7 @@ export default createStore({
   // fetching a product
   async fetchProduct(context, payload) {
     try{
-      let {result} = (await axios.get(`${pawcareURL}/products/:id${payload.id}`)).data
+      let {result} = (await axios.get(`${pawcareURL}/products/${payload.id}`)).data
       if (result) {
         context.commit('setProduct', result)
       } else {
@@ -213,7 +213,7 @@ export default createStore({
   // updating/editing a product
   async updateProduct(context, payload) {
     try{
-      let{msg} = await axios.patch(`${pawcareURL}/products/updateProduct/:id${payload.id}`)
+      let{msg} = await axios.patch(`${pawcareURL}/products/updateProduct/${payload.id}`)
       if(msg) {
         context.dispatch('fetchProducts')
         sweet({
@@ -235,7 +235,7 @@ export default createStore({
   // deleting a product
   async deleteProduct(context, payload) {
     try{
-      let{msg} = await axios.delete(`${pawcareURL}/products/deleteProduct/:id${payload.id}`)
+      let{msg} = await axios.delete(`${pawcareURL}/products/deleteProduct/${payload.id}`)
       if(msg) {
         context.dispatch('fetchProduct')
         sweet({

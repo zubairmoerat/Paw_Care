@@ -153,7 +153,7 @@ export default createStore({
   async deleteUser(context, payload) {
     try{
       let{msg} = await axios.delete(`${pawcareURL}/users/deleteUser/${payload.id}`)
-      if(msg) {
+      // if(msg) {
         context.dispatch('fetchUsers')
         sweet({
           title: 'Delete user',
@@ -161,7 +161,7 @@ export default createStore({
           icon: "success",
           timer: 2000
         })
-      }
+      // }
     }catch(e) {
       sweet({
         title: 'Error',
@@ -210,6 +210,27 @@ export default createStore({
       })
     }
   },
+  async addProduct(context, payload){
+    try{
+      let {msg} = (await axios.post(`${pawcareURL}/products/addProduct`, payload)).data
+      if(msg){
+        context.dispatch('fetchProducts')
+        sweet({
+          title: 'Add Product',
+          text: msg,
+          icon: "success",
+          timer: 2000
+        })
+      }
+    }catch(e){
+      sweet({
+        title: 'Error',
+        text: 'Unable to add product',
+        icon: 'Error',
+        timer: 2000
+      })
+    }
+  },
   // updating/editing a product
   async updateProduct(context, payload) {
     try{
@@ -236,7 +257,7 @@ export default createStore({
   async deleteProduct(context, payload) {
     try{
       let{msg} = await axios.delete(`${pawcareURL}/products/deleteProduct/${payload.id}`)
-      if(msg) {
+      // if(msg) {
         context.dispatch('fetchProduct')
         sweet({
           title: 'Delete product',
@@ -244,7 +265,7 @@ export default createStore({
           icon: "success",
           timer: 2000
         })
-      }
+      // }
     }catch(e) {
       sweet({
         title: 'Error',

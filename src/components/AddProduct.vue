@@ -1,5 +1,5 @@
 <template>
-    <div class="modal fade" :id="addProductModel" tabindex="-1" aria-labelledby="addProduct" aria-hidden="true">
+    <div class="modal fade" id="addProductModel" tabindex="-1" aria-labelledby="addProduct" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header bg-dark">
@@ -44,8 +44,6 @@
     </template>
     
     <script>
-import { register } from 'register-service-worker';
-
         export default {
            props:['addProductModel'],
             data(){

@@ -48,7 +48,6 @@
     </template>
     
     <script>
-import { register } from 'register-service-worker';
 
         export default {
            props:['addUserModel'],

@@ -5,8 +5,9 @@
         <h4 class="d-flex justify-content-left" id="home-1">Shop now and get 20% discount <br>on your first order.</h4>
         <p class="lead d-flex justify-content-left" id="home-2"> Only the best for our furry friends!</p>
         <div class="theBTN">
-        <button type="button" id="shopNow" class="d-flex justify-content-left"><a href="./ProductsView.vue" class="button-link">Shop now</a></button>
+        <router-link :to="{name: 'products'}"><button type="button" id="shopNow" class="d-flex justify-content-left">Shop now</button></router-link>
       </div>
+      
       </div> 
       
       <br> <br>

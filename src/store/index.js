@@ -176,7 +176,7 @@ export default createStore({
     try{
       let {result} = (await axios.get(`${pawcareURL}/products/${payload.id}`)).data
       if (result) {
-        context.commit('setProduct', result)
+        context.commit('setProduct', result[0]) 
       } else {
         sweet({
           title: 'Retrieving a single product',

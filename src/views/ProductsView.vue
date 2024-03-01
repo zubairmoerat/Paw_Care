@@ -2,21 +2,23 @@
     <div class="container">
         <div class="row d-block d-flex ">
             <div class="row">
+                <h4 class="display-6" id="shopAll">Shop All</h4>
               <div class="col">
+                <!-- Search input -->
                 <input id="search1" type="text" placeholder=" Search by category..."  class="form-control" data-search-products>
                 </div>
               
               <div class="col d-flex justify-content-end">
-                <button class="btn btn-light" id="sortProducts" data-sorted-products @click="sort">
+                <!-- sort button -->
+                <button class="btn btn-light" id="sortProducts" data-sorted-products>
                   Sort by <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M10.5 8.5L14.5 12.5M14.5 12.5L18.5 8.5M14.5 12.5V2.5M10.5 12.544L6.5 8.5M6.5 8.5L2.5 12.544M6.5 8.5V18.5" stroke="#D27C2C" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
+                <path d="M10.5 8.5L14.5 12.5M14.5 12.5L18.5 8.5M14.5 12.5V2.5M10.5 12.544L6.5 8.5M6.5 8.5L2.5 12.544M6.5 8.5V18.5" stroke="#D27C2C" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
                 </button>
               </div>
             </div>
           </div>
-        <div class="row" v-if="products" id="alignment">
+        <div class="row mx-2" v-if="products" id="alignment">
             <Card v-for="product in products" :key="product.prodID">
                 <template #cardHeader>
                     <h4 class="card-title">
@@ -24,19 +26,21 @@
                     </h4>
                 </template>
                 <template #cardBody>
-                    <div class="theAlignment">
-                        <p class="card-text p-2 mx-2" id="theName">
+                        <p class="card-text p-2" id="theName">
                         {{ product.prodName }}
                     </p>
-                    <p class="card-text p-2" id="theCat">
-                        {{ product.category }}
-                    </p>
-                    <p class="card-text  p-2" id="theAmount">
-                        R{{ product.amount }},00
-                    </p>
-                    <router-link :to="{name: 'product', params: {id: product.prodID}} "><button type="button" class="deButton">View more</button></router-link>
+                        <p class="card-text p-2 mx-2" id="theCat">
+                            {{ product.category }}
+                        </p>
+                    <div class="d-flex justify-content-center">
+                        <p class="card-text  p-2" id="theAmount">
+                            R{{ product.amount }},00
+                        </p>
                     </div>
-                    </template>
+            </template>
+            <template #cardFooter>
+                <router-link :to="{name: 'product', params: {id: product.prodID}} "><button type="button" class="deButton">View more</button></router-link>
+            </template>
             </Card> 
         </div>
         <!--spinner-->
@@ -71,9 +75,18 @@ export default {
 </script>
 
 <style scoped>
+.card-title{
+    height: 180px;
+}
+#shopAll {
+    color:#EE6F12 ;
+
+}
+
 #search1 {
     border-radius:13px;
     border-color: #EE6F12;
+    margin-top: 20px;
 }
 
 #sortProducts {
@@ -81,14 +94,15 @@ export default {
     border-color: #EE6F12;
     color: black;
     background-color: white;
+    margin-top: 20px;
 }
 
 img[alt="prodPic"] {
-    width: 200px;
+    width: 110px;
 }
 
 #deName{
-    font-size: large;
+    font-size: medium;
     color:#EE6F12 ;
     background-color: white;
 }
@@ -104,6 +118,7 @@ img[alt="prodPic"] {
 
 #theName{
     font-weight: 600;
+    
 }
 
 #theAmount{
@@ -116,7 +131,7 @@ img[alt="prodPic"] {
     color: white;
     background-color: #EE6F12;
     border-color: #EE6F12;
-    
+    /* margin: 25px; */
 }
 
 

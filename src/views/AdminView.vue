@@ -5,7 +5,19 @@
       </div>
       <div class="row mb-3">
         <div class="col">
-          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="">Add</button>
+          <button @click="openAddUserModal" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addUserModalTarget">Add</button>
+        </div>
+        <div class="modal" id="addUserModalTarget" data-bs-backdrop="static">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title"></h3>
+                <button class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+              </div>
+              <div class="modal-header"></div>
+              <div class="modal-footer"></div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -32,8 +44,8 @@
               <td>{{ user.emailAdd }}</td>
               <td>{{ user.userRole }}</td>
               <td class="d-flex justify-content-between">
-                <button class="btn btn-sm btn-primary">Edit</button>
-                <button class="btn btn-sm btn-danger">Delete</button>
+                <button @click="editUser(user.userID)" id="edit" class="btn btn-sm btn-primary">Edit</button>
+                <button @click="deleteUser(user.userID)" class="btn btn-sm btn-danger">Delete</button>
               </td>
             </tr>
           </tbody>
@@ -44,7 +56,8 @@
       </div>
       <div class="row mb-3">
         <div class="col">
-          <button class="btn btn-warning">Add</button>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addProductModalTarget">Add</button>
+          <AddProduct :product="product" addProductModal="addProductModalTarget"/>
         </div>
       </div>
       <div class="row">
@@ -64,7 +77,9 @@
             <tr v-for="product in products" :key="product.prodID">
               <td>{{ product.prodID }}</td>
               <td>{{ product.prodName }}</td>
-              <td>{{ product.prodUrl }}</td>
+              <td>
+                <img :src="product.prodUrl" alt="prodPic">
+              </td>
               <td>{{ product.prodDesc }}</td>
               <td>{{ product.quantity }}</td>
               <td>R{{ product.amount }},00</td>
@@ -81,9 +96,11 @@
   
 
 <script>
+
+
     export default {
+
         components :{
-            
         },
         computed: {
             users(){
@@ -126,11 +143,24 @@
                     Quantity: product.prodQuantity,
                     Amount: product.prodAmount 
                 }
-                this.$store.dispatch('updateProduct', {id: product.prodID, data: editProd});
-            }
+                this.$store.dispatch('updateProduct', {id: product.prodID, value: editProd});
+            },
+            editUser(userID){
+        let edit = {
+          id:userID,
+          firstName: this.firstName,
+          lastName: this.lastName,
+          emailAdd:this.emailAdd,
+          Gender:this.gender,
+          userAge:this.userAge,
+          userRole: this.userRole,
+          userProfile: this.userProfile,
+          userPass: this.userPass
         }
-    }
-
+        this.$store.dispatch('editUser', edit);
+    },
+  }
+}
 </script>
 
 <style scoped>

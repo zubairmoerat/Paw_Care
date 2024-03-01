@@ -4,22 +4,24 @@
             <h3 class="display-6 d-flex justify-content-left">Contact Us</h3>
             <br><br> <br><br>
             <div class="col-md-6">
-                <form @submit.prevent="submitForm" action="" method="post" class="contact-form"></form>
+                <form class="submit-form" action="https://formspree.io/f/xwkgbwrl" method="POST" name="contact-form">
                 <div class="mb-3">
                     <label for="name" class="form-label d-flex justify-content-left mx-3" id="darker-1">Your Name</label>
-                    <input type="text" id="name" placeholder=" Your Name..." v-model="name" class="form-control" required>
+                    <input type="text" id="name" placeholder=" Your Name..." v-model="name" class="form-control" required name="name">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label d-flex justify-content-left mx-3" id="darker-1">Your Email</label>
-                    <input type="email" id="email" placeholder=" Your Email..."  v-model="email" class="form-control" required>
+                    <input type="email" id="email" placeholder=" Your Email..."  v-model="email" class="form-control" required name="email">
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label d-flex justify-content-left mx-3" id="darker-1">Your Message</label>
-                    <textarea id="message" placeholder=" Your Message..."   v-model="message" class="form-control" rows="4" required></textarea>
+                    <textarea id="message" placeholder=" Your Message..."   v-model="message" class="form-control" rows="4" required name="message"></textarea>
                 </div>
                 <br> <br>
 
                 <button type="submit" class="d-flex justify-content-left" id="button-2">Submit</button>
+                </form>
+                
             </div>
             <div class="col-md-6">
                 <h4 class="heading1">Get In Touch</h4>

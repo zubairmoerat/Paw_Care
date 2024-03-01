@@ -6,6 +6,9 @@
         <div class="card-body">
             <slot name="cardBody"></slot>
         </div>
+        <div class="card-footer">
+            <slot name="cardFooter"></slot>
+        </div>
     </div>
 </template>
 
@@ -18,6 +21,7 @@
 <style scoped>
 .card {
     width: 18rem;
-    margin: .5rem;
+    gap: 3rem;
+    padding-top: 90px;
 }
 </style>

@@ -12,6 +12,7 @@
 import NavBar from './components/NavBar.vue';
 import FooterComp from './components/FooterComp.vue';
 import SpinnerComp from './components/SpinnerComp.vue'
+
 export default {
   components: {
     NavBar,

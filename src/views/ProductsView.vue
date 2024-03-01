@@ -11,10 +11,16 @@
               <div class="col d-flex justify-content-end">
                 <!-- sort button -->
                 <button class="btn btn-light" id="sortProducts" data-sorted-products>
-                  Sort by <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  Sort by<svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10.5 8.5L14.5 12.5M14.5 12.5L18.5 8.5M14.5 12.5V2.5M10.5 12.544L6.5 8.5M6.5 8.5L2.5 12.544M6.5 8.5V18.5" stroke="#D27C2C" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
+                <!-- ({{ ascendingOrder ? 'Lowest to Highest' : 'Highest to Lowest' }}) -->
                 </button>
+                <!-- <ul>
+                  <li v-for="product in sortedProducts" :key="product.id">
+                   {{ product.prodName }} - R{{ product.amount }},00
+                </li>
+              </ul> -->
               </div>
             </div>
           </div>
@@ -64,12 +70,19 @@ export default {
         products(){
             return this.$store.state.products
         },
+    //     sortedProducts() {
+    //   return this.products.slice().sort((a, b) => {
+    //     return this.ascendingOrder ? a.amount - b.amount : b.amount - a.amount;
+    //   });
+    // },
     },
     mounted(){
         this.$store.dispatch('fetchProducts')
     },
     methods: {
-        
+    //     toggleSortOrder() {
+    //   this.ascendingOrder = !this.ascendingOrder;
+    // },
     }
 }
 </script>

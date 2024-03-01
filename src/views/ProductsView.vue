@@ -83,8 +83,13 @@ export default {
                 }) 
             },
             sortedProducts(){
-                return this.filteredProducts.sort((a, b)=> a.amount - b.amount)
-                 
+                if(!this.highest){
+                    this.highest = true
+                    return this.filteredProducts.sort((a,b)=> a.amount - b.amount)
+                }else{
+                    this.highest = false
+                    return this.filteredProducts.sort((a,b)=> b.amount - a.amount)
+                }       
             }
     }
 }

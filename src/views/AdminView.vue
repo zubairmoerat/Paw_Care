@@ -3,21 +3,10 @@
       <div class="row">
         <h2 class="display-4">User CRUD</h2>
       </div>
+    <AddUser/>
       <div class="row mb-3">
         <div class="col">
-          <button @click="openAddUserModal" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addUserModalTarget">Add</button>
-        </div>
-        <div class="modal" id="addUserModalTarget" data-bs-backdrop="static">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h3 class="modal-title"></h3>
-                <button class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-              </div>
-              <div class="modal-header"></div>
-              <div class="modal-footer"></div>
-            </div>
-          </div>
+          <!-- <button @click="openAddUserModal" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addUserModalTarget">Add</button> -->
         </div>
       </div>
       <div class="row">
@@ -44,9 +33,12 @@
               <td>{{ user.emailAdd }}</td>
               <td>{{ user.userRole }}</td>
               <td class="d-flex justify-content-between">
-                <button @click="editUser(user.userID)" id="edit" class="btn btn-sm btn-primary">Edit</button>
-                <button @click="deleteUser(user.userID)" class="btn btn-sm btn-danger">Delete</button>
-              </td>
+                <updateUser/>
+                <button @click="event=> deleteUser(user.userID)" class="btn btn-sm btn-danger">Delete</button>
+                <!-- <button @click="editUser(user.userID)" id="edit" class="btn btn-sm btn-primary">Edit</button> -->
+                </td>
+                
+                
             </tr>
           </tbody>
         </table>
@@ -56,8 +48,8 @@
       </div>
       <div class="row mb-3">
         <div class="col">
-          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addProductModalTarget">Add</button>
-          <AddProduct :product="product" addProductModal="addProductModalTarget"/>
+        <AddProduct/>
+          <!-- <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addProductModalTarget">Add</button> -->
         </div>
       </div>
       <div class="row">
@@ -84,8 +76,13 @@
               <td>{{ product.quantity }}</td>
               <td>R{{ product.amount }},00</td>
               <td class="d-flex justify-content-between gap-2">
-                <button class="btn btn-sm btn-primary">Edit</button>
-                <button class="btn btn-sm btn-danger">Delete</button>
+                <!-- <updateProduct :product="product" /> -->
+               <button class="btn btn-sm btn-primary" @click="addingProduct"
+               data-bs-target="#updateProductModal" data-bs-toggle="modal"><updateProduct/></button>
+               
+                <!-- <button class="btn btn-sm btn-danger">Delete</button> -->
+                <button class="btn btn-sm btn-danger deleteButton" @click="event => 
+                deleteProduct(product.prodID)">Delete</button>
               </td>
             </tr>
           </tbody>
@@ -96,11 +93,18 @@
   
 
 <script>
-
+import AddUser from '../components/AddUser.vue'
+import AddProduct from '@/components/AddProduct.vue'
+import UpdateProduct from '@/components/UpdateProduct.vue'
+import UpdateUser from '@/components/UpdateUser.vue'
 
     export default {
 
         components :{
+          AddUser,
+          AddProduct,
+          UpdateProduct,
+          UpdateUser
         },
         computed: {
             users(){

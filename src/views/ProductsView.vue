@@ -5,27 +5,21 @@
                 <h4 class="display-6" id="shopAll">Shop All</h4>
               <div class="col">
                 <!-- Search input -->
-                <input id="search1" type="text" placeholder=" Search by category..."  class="form-control" data-search-products>
+                <input @keyup="searchProduct()" id="search1" type="text" placeholder=" Search by name..."  class="form-control" ref="inputField" v-model="searchData">
                 </div>
               
               <div class="col d-flex justify-content-end">
                 <!-- sort button -->
-                <button class="btn btn-light" id="sortProducts" data-sorted-products>
+                <button @click="sortedProducts()" class="btn btn-light" id="sortProducts">
                   Sort by<svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10.5 8.5L14.5 12.5M14.5 12.5L18.5 8.5M14.5 12.5V2.5M10.5 12.544L6.5 8.5M6.5 8.5L2.5 12.544M6.5 8.5V18.5" stroke="#D27C2C" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <!-- ({{ ascendingOrder ? 'Lowest to Highest' : 'Highest to Lowest' }}) -->
                 </button>
-                <!-- <ul>
-                  <li v-for="product in sortedProducts" :key="product.id">
-                   {{ product.prodName }} - R{{ product.amount }},00
-                </li>
-              </ul> -->
               </div>
             </div>
           </div>
-        <div class="row mx-2" v-if="products" id="alignment">
-            <Card v-for="product in products" :key="product.prodID">
+        <div class="row mx-2" v-if="filteredProducts" id="alignment">
+            <Card v-for="product in filteredProducts" :key="product.prodID">
                 <template #cardHeader>
                     <h4 class="card-title">
                         <img :src="product.prodUrl" alt="prodPic">
@@ -62,6 +56,12 @@ import SpinnerComp from '../components/SpinnerComp.vue';
 
 export default {
     name: 'ProductsView',
+    data(){
+        return {
+            filteredProducts: null,
+            searchData: ''
+        }
+    },
     components: {
         Card,
         SpinnerComp
@@ -70,19 +70,22 @@ export default {
         products(){
             return this.$store.state.products
         },
-    //     sortedProducts() {
-    //   return this.products.slice().sort((a, b) => {
-    //     return this.ascendingOrder ? a.amount - b.amount : b.amount - a.amount;
-    //   });
-    // },
     },
     mounted(){
         this.$store.dispatch('fetchProducts')
+        this.filteredProducts = this.products
     },
     methods: {
-    //     toggleSortOrder() {
-    //   this.ascendingOrder = !this.ascendingOrder;
-    // },
+            searchProduct() {
+                this.filteredProducts = this.searchData == '' ? this.filteredProducts :   
+                this.products.filter(item =>{
+                    return item.prodName.toLowerCase().includes(this.searchData)
+                }) 
+            },
+            sortedProducts(){
+                return this.filteredProducts.sort((a, b)=> a.amount - b.amount)
+                 
+            }
     }
 }
 </script>

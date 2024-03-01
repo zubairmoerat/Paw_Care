@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="row">
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered">
           <thead class="bg-warning text-white">
             <tr>
               <th>User ID</th>
@@ -61,7 +61,7 @@
         </div>
       </div>
       <div class="row">
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered">
           <thead class="bg-warning text-white">
             <tr>
               <th>Product ID</th>
@@ -164,5 +164,7 @@
 </script>
 
 <style scoped>
-
+img[alt="prodPic"] {
+    width: 110px;
+}
 </style>
